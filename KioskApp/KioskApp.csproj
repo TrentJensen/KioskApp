@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-KioskApp-708B6CA3-6A5C-4945-A40E-0CC855E2A63F</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180419052052_ProductForeignKey.cs" />
+    <Compile Remove="Data\Migrations\20180419052052_ProductForeignKey.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
