@@ -15,6 +15,14 @@ namespace KioskApp.Data
         {
         }
 
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderList> OrderLists { get; set; }
+        public DbSet<Coupon> Coupons { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

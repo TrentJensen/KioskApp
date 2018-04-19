@@ -12,6 +12,16 @@
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Email"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
@@ -26,6 +36,13 @@
                 <input asp-for="ConfirmPassword" class="form-control" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
+            Are you a Vendor or Customer?
+            <div class="radio-inline">
+                @*<input asp-for="Role" value="@Model.Role" type="radio" />*@
+                <input type="radio" name="Role" value="Vendor" checked> Vendor<br>
+                <input type="radio" name="Role" value="Customer"> Customer<br>
+            </div>
+
             <button type="submit" class="btn btn-default">Register</button>
         </form>
     </div>

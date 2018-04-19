@@ -27,7 +27,7 @@ namespace KioskApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -36,6 +36,7 @@ namespace KioskApp
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
+            services.AddSession();
             services.AddMvc();
         }
 
@@ -56,6 +57,7 @@ namespace KioskApp
             app.UseStaticFiles();
 
             app.UseAuthentication();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
