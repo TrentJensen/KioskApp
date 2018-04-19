@@ -1,0 +1,6 @@
+﻿@model ProductsViewModel
+
+@foreach (var product in Model.Products)
+{
+    @Html.Partial("ProductOverview", product)
+}

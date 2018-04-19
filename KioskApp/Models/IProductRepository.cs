@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KioskApp.Models
 {
     public interface IProductRepository
     {
         IEnumerable<Product> GetAllProducts();
+        IEnumerable<Product> GetAllProductsByVendor(int vendorId);
         Product GetProductbyId(int productID);
-        IEnumerable<Product> GetAllProductsBySeller(int vendorId);
     }
 }

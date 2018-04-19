@@ -12,7 +12,7 @@ namespace KioskApp.Data
         {
             if(!context.Products.Any())
             {
-                context.AddRange
+                context.Products.AddRangeAsync
                     (
                         new Product
                         {

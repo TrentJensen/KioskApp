@@ -24,7 +24,7 @@ namespace KioskApp
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    //DbInitializer.Seed(context);
+                    DbInitializer.Seed(context);
                 }
                 catch (Exception)
                 {

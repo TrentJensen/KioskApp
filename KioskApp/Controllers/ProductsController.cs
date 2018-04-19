@@ -29,8 +29,10 @@ namespace KioskApp.Controllers
         public IActionResult Index()
         {
             var user = _userManager.GetUserAsync(HttpContext.User);
-            //var sellerProducts = _productRepository.GetAllProductsBySeller(user.Id)..OrderBy(p => p.Name);
+            //var test = this.User.Identity.Name; //Get's current user's email
+            var test2 = _userManager.GetUserId(HttpContext.User);
             var sellerProducts = _productRepository.GetAllProducts();
+            var userId = user.Id;
 
             var productsViewModel = new ProductsViewModel()
             {
