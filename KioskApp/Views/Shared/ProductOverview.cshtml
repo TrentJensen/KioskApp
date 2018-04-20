@@ -2,7 +2,7 @@
 
 <div class="col-sm-4">
     <div class="thumbnail">
-        <img src="~/images/products/@Model.Image" alt="">
+        <img src="~/images/@Model.Image" class="img-responsive" alt="">
         <div class="caption">
             <h2 class="pull-right">@Model.Price.ToString("c")</h2>
             <h2><a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id">@Model.Name</a></h2>
