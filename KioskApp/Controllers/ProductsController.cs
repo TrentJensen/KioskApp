@@ -30,8 +30,10 @@ namespace KioskApp.Controllers
         {
             var user = _userManager.GetUserAsync(HttpContext.User);
             //var test = this.User.Identity.Name; //Get's current user's email
-            var test2 = _userManager.GetUserId(HttpContext.User);
-            var sellerProducts = _productRepository.GetAllProducts();
+
+            //Get the Guid of the current vendor from the UserManager and use that to get only the vendor's products
+            var userGuid = _userManager.GetUserId(HttpContext.User);
+            var sellerProducts = _productRepository.GetAllProductsByVendor(userGuid);
             var userId = user.Id;
 
             var productsViewModel = new ProductsViewModel()

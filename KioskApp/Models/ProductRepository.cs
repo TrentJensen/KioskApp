@@ -25,9 +25,9 @@ namespace KioskApp.Models
             return _appDbContext.Products.FirstOrDefault(p => p.Id == productID);
         }
 
-        public IEnumerable<Product> GetAllProductsByVendor(int vendorId)
+        public IEnumerable<Product> GetAllProductsByVendor(string vendorGuid)
         {
-            return _appDbContext.Products.Where(p => p.VendorId == vendorId);
+            return _appDbContext.Products.Where(p => p.VendorGuid == vendorGuid);
         }
     }
 }

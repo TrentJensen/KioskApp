@@ -20,5 +20,6 @@ namespace KioskApp.Models
         [ForeignKey("Vendor")]
         public int VendorId { get; set; }
         public Vendor Vendor { get; set; }
+        public string VendorGuid { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace KioskApp.Models
     public interface IProductRepository
     {
         IEnumerable<Product> GetAllProducts();
-        IEnumerable<Product> GetAllProductsByVendor(int vendorId);
+        IEnumerable<Product> GetAllProductsByVendor(string vendorGuid);
         Product GetProductbyId(int productID);
     }
 }
