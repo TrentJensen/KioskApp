@@ -14,6 +14,7 @@ using KioskApp.Models;
 using KioskApp.Models.AccountViewModels;
 using KioskApp.Services;
 using KioskApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace KioskApp.Controllers
 {
@@ -26,19 +27,22 @@ namespace KioskApp.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
         private readonly ApplicationDbContext _applicationDbContext;
+        private readonly ICustomerRepository _customerRepository;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ILogger<AccountController> logger,
-            ApplicationDbContext applicationDbContext)
+            ApplicationDbContext applicationDbContext,
+            ICustomerRepository customerRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
             _applicationDbContext = applicationDbContext;
+            _customerRepository = customerRepository;
         }
 
         [TempData]
@@ -228,6 +232,15 @@ namespace KioskApp.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    _logger.LogInformation("User created a new account with password.");
+
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    _logger.LogInformation("User created a new account with password.");
+
                     //Create a vendor with the identity's UserId
                     if (model.Role[0].Equals("Vendor"))
                     {
@@ -240,16 +253,23 @@ namespace KioskApp.Controllers
                         };
                         _applicationDbContext.Vendors.Add(vendor);
                         _applicationDbContext.SaveChanges();
+                        return RedirectToLocal(returnUrl);
                     }
-                    _logger.LogInformation("User created a new account with password.");
+                    else if (model.Role[0].Equals("Customer"))
+                    {
+                        var cust = new Customer
+                        {
+                            FirstName = model.FirstName,
+                            LastName = model.LastName,
+                            Email = model.Email,
+                            LoginId = user.Id,
+                        };
+                        _applicationDbContext.Customers.Add(cust);
+                        _applicationDbContext.SaveChanges();
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+                        return RedirectToAction("CreateCustomer");
+                    }
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
             }
@@ -452,6 +472,34 @@ namespace KioskApp.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        public IActionResult CreateCustomer()
+        {
+            //Get the Guid of the current vendor from the UserManager and use that to get only the vendor's products
+            var userGuid = _userManager.GetUserId(HttpContext.User);
+
+            Customer cust = _customerRepository.GetCustomerByGuid(userGuid);
+            return View(cust);
+        }
+
+        [HttpPost]
+        public IActionResult CreateCustomer(Customer cust)
+        {
+            //Get the customer
+            var userGuid = _userManager.GetUserId(HttpContext.User);
+            Customer customer = _customerRepository.GetCustomerByGuid(userGuid);
+
+            customer.Address = cust.Address;
+            customer.City = cust.City;
+            customer.State = cust.State;
+            customer.Zip = cust.Zip;
+            customer.Loyalty = cust.Loyalty;
+
+            _applicationDbContext.Customers.Add(customer);
+            _applicationDbContext.Entry(customer).State = EntityState.Modified;
+            _applicationDbContext.SaveChanges();
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         #region Helpers

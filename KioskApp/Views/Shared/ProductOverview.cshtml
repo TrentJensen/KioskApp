@@ -1,15 +1,15 @@
-﻿@model Product
+﻿@model IProductListItemViewModel
 
 <div class="col-sm-4">
     <div class="thumbnail">
-        <img src="~/images/@Model.Image" class="img-responsive" alt="">
+        <img src="~/images/@Model.Product.Image" class="img-responsive" height="50" alt="">
         <div class="caption">
-            <h2 class="pull-right">@Model.Price.ToString("c")</h2>
-            <h2><a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id">@Model.Name</a></h2>
-            <h3 class="pull-right">In Stock: @Model.UnitsInStock</h3>
-            <p>@Model.Description</p>
-            <form asp-controller="Cart" asp-action="AddProduct" method="post">
-                <input type="hidden" name="Id" value="@Model.Id" />
+            <h2 class="pull-right">@Model.Product.Price.ToString("c")</h2>
+            <h2><a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Product.Id">@Model.Product.Name</a></h2>
+            <h4 class="pull-right">In Stock: @Model.Product.UnitsInStock</h4>
+            <p>@Model.Product.Description</p>
+            <form asp-controller="Products" asp-action="AddProductToCart" method="post">
+                <input type="hidden" name="ProductId" value="@Model.Product.Id" />
                 <input type="text" name="Quantity" value="0" />
                 <button type="submit">Add to Cart</button>
             </form>

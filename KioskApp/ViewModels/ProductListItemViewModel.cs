@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KioskApp.ViewModels
 {
-    public class ProductsViewModel
+    public class ProductListItemViewModel : IProductListItemViewModel
     {
-        public string VendorName { get; set; }
-        public List<ProductListItemViewModel> Products { get; set; }
+        public Product Product { get; set; }
+        public int Quantity { get; set; }
     }
 }

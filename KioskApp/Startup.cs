@@ -36,6 +36,7 @@ namespace KioskApp
             // Add application services.
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
 

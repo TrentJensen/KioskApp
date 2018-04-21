@@ -31,6 +31,8 @@ namespace KioskApp.Models
         public string City { get; set; }
         public string State { get; set; }
         public int Zip { get; set; }
+        public string LoginId { get; set; }
+        public int VendorId { get; set; }
         public int PaymentId { get; set; }
         public bool Loyalty { get; set; }
         public int AwardsPoints { get; set; }

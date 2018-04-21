@@ -7,6 +7,7 @@ using KioskApp.Models;
 using KioskApp.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace KioskApp.Controllers
 {
@@ -28,31 +29,64 @@ namespace KioskApp.Controllers
 
         public IActionResult Index()
         {
-            var user = _userManager.GetUserAsync(HttpContext.User);
-            //var test = this.User.Identity.Name; //Get's current user's email
-
             //Get the Guid of the current vendor from the UserManager and use that to get only the vendor's products
             var userGuid = _userManager.GetUserId(HttpContext.User);
+
+            ////If the user isn't logged in, redirect to an info page
+            //if (userGuid == null)
+            //{
+            //    return RedirectToAction("ProductWarning");
+            //}
+
             var sellerProducts = _productRepository.GetAllProductsByVendor(userGuid);
-            var userId = user.Id;
+            //var userId = user.Id;
+            var userId = "test";
+
+            List<ProductListItemViewModel> prodList = new List<ProductListItemViewModel>();
+
+            foreach(Product prod in sellerProducts)
+            {
+                prodList.Add(new ProductListItemViewModel
+                {
+                    Product = prod,
+                    Quantity = prod.UnitsInStock
+                });
+            }
 
             var productsViewModel = new ProductsViewModel()
             {
-                VendorName = $"{user.Id}'s Page",
-                Products = sellerProducts.ToList()
+                VendorName = $"{userId}'s Page",
+                Products = prodList
             };
 
             return View(productsViewModel);
         }
 
-        [HttpPost]
-        public IActionResult AddProduct(AddToCartViewModel model)
+        public IActionResult ProductWarning()
         {
-            if (model.Product.UnitsInStock >= model.Quantity)
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddProductToCart(ProductToCartViewModel model)
+        {
+            Product product = _productRepository.GetProductbyId(model.ProductId);
+            if (product.UnitsInStock >= model.Quantity)
             {
-                _shoppingCart.AddToCart(model.Product, model.Quantity);
+                _shoppingCart.AddToCart(product, model.Quantity);
+
+                //Subtract quantity from units in stock and save to db
+                product.UnitsInStock -= model.Quantity;
+                _applicationDbContext.Products.Add(product);
+                _applicationDbContext.Entry(product).State = EntityState.Modified;
+                _applicationDbContext.SaveChanges();
             }
 
+            //Subtract quantity from units in stock and save to db
+            product.UnitsInStock -= model.Quantity;
+            _applicationDbContext.Products.Add(product);
+            _applicationDbContext.Entry(product).State = EntityState.Modified;
+            _applicationDbContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
