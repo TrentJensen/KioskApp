@@ -56,10 +56,10 @@ namespace KioskApp.Controllers
             }
             else
             {
-                int categoryId = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName.ToLower() == category).Id;
+                int categoryId = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName == category).Id;
                 vendorProducts = vendorProducts.Where(p => p.CategoryId == categoryId)
                     .OrderBy(p => p.Name);
-                currentCategory = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName.ToLower() == category).CategoryName;
+                currentCategory = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName == category).CategoryName;
             }
 
             List<ProductListItemViewModel> prodList = new List<ProductListItemViewModel>();
