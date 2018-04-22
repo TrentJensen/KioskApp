@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using KioskApp.Data;
 using KioskApp.Models;
 using KioskApp.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace KioskApp
 {
@@ -38,8 +39,10 @@ namespace KioskApp
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
 
+            services.AddMemoryCache();
             services.AddSession();
             services.AddMvc()
                 .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
