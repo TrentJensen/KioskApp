@@ -21,5 +21,7 @@ namespace KioskApp.Models
         public int VendorId { get; set; }
         public Vendor Vendor { get; set; }
         public string VendorGuid { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

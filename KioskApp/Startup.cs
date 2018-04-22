@@ -36,6 +36,7 @@ namespace KioskApp
 
             // Add application services.
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IEmailSender, EmailSender>();
@@ -69,6 +70,11 @@ namespace KioskApp
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "categoryfilter",
+                    template: "Products/{action}/{category?}",
+                    defaults: new { Controller = "Products", action = "List" });
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

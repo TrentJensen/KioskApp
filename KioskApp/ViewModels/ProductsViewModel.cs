@@ -10,5 +10,6 @@ namespace KioskApp.ViewModels
     {
         public string VendorName { get; set; }
         public List<ProductListItemViewModel> Products { get; set; }
+        public string CurrentCategory { get; set; }
     }
 }

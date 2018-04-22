@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20180419052052_ProductForeignKey.cs" />
     <Compile Remove="Data\Migrations\20180419052052_ProductForeignKey.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180422160041_AddCategory.cs" />
+    <Compile Remove="Data\Migrations\20180422160041_AddCategory.Designer.cs" />
   </ItemGroup>
 
 

@@ -14,23 +14,27 @@ namespace KioskApp.Controllers
     public class ProductsController : Controller
     {
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ShoppingCart _shoppingCart;
         private readonly ApplicationDbContext _applicationDbContext;
 
-        public ProductsController(IProductRepository productRespository, UserManager<ApplicationUser> userManager,
+        public ProductsController(IProductRepository productRespository, ICategoryRepository categoryRepository, UserManager<ApplicationUser> userManager,
             ShoppingCart shoppingCart, ApplicationDbContext applicationDbContext)
         {
             _productRepository = productRespository;
+            _categoryRepository = categoryRepository;
             _userManager = userManager;
             _shoppingCart = shoppingCart;
             _applicationDbContext = applicationDbContext;
         }
 
-        public IActionResult Index()
+        public ViewResult List(string category)
         {
             //Get the Guid of the current vendor from the UserManager and use that to get only the vendor's products
-            var userGuid = _userManager.GetUserId(HttpContext.User);
+
+            //var userGuid = _userManager.GetUserId(HttpContext.User);
+            var userGuid = "4310be48-b16e-4054-af67-50d60bfe78f6";
 
             ////If the user isn't logged in, redirect to an info page
             //if (userGuid == null)
@@ -38,13 +42,29 @@ namespace KioskApp.Controllers
             //    return RedirectToAction("ProductWarning");
             //}
 
-            var sellerProducts = _productRepository.GetAllProductsByVendor(userGuid);
             //var userId = user.Id;
-            var userId = "test";
+            IEnumerable<Product> vendorProducts = _productRepository.GetAllProductsByVendor(userGuid)
+                    .OrderBy(p => p.Name);
+
+            //Get all of the products for the current category
+            string currentCategory = string.Empty;
+
+            if (string.IsNullOrEmpty(category))
+            {
+
+                currentCategory = "All products";
+            }
+            else
+            {
+                int categoryId = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName.ToLower() == category).Id;
+                vendorProducts = vendorProducts.Where(p => p.CategoryId == categoryId)
+                    .OrderBy(p => p.Name);
+                currentCategory = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName.ToLower() == category).CategoryName;
+            }
 
             List<ProductListItemViewModel> prodList = new List<ProductListItemViewModel>();
 
-            foreach(Product prod in sellerProducts)
+            foreach(Product prod in vendorProducts)
             {
                 prodList.Add(new ProductListItemViewModel
                 {
@@ -55,8 +75,9 @@ namespace KioskApp.Controllers
 
             var productsViewModel = new ProductsViewModel()
             {
-                VendorName = $"{userId}'s Page",
-                Products = prodList
+                VendorName = $"Vendor's Page",
+                Products = prodList,
+                CurrentCategory = currentCategory
             };
 
             return View(productsViewModel);
@@ -75,19 +96,14 @@ namespace KioskApp.Controllers
             {
                 _shoppingCart.AddToCart(product, model.Quantity);
 
-                //Subtract quantity from units in stock and save to db
-                product.UnitsInStock -= model.Quantity;
-                _applicationDbContext.Products.Add(product);
-                _applicationDbContext.Entry(product).State = EntityState.Modified;
-                _applicationDbContext.SaveChanges();
+                ////Subtract quantity from units in stock and save to db
+                //product.UnitsInStock -= model.Quantity;
+                //_applicationDbContext.Products.Add(product);
+                //_applicationDbContext.Entry(product).State = EntityState.Modified;
+                //_applicationDbContext.SaveChanges();
             }
 
-            //Subtract quantity from units in stock and save to db
-            product.UnitsInStock -= model.Quantity;
-            _applicationDbContext.Products.Add(product);
-            _applicationDbContext.Entry(product).State = EntityState.Modified;
-            _applicationDbContext.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         public IActionResult Details(int id)
