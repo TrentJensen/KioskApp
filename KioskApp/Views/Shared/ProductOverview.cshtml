@@ -2,16 +2,17 @@
 
 <div class="col-sm-4">
     <div class="thumbnail">
-        <img src="~/images/@Model.Product.Image" class="img-responsive" height="50" alt="">
+        <img src="~/images/@Model.Product.Image" height="30" alt="">
         <div class="caption">
             <h2 class="pull-right">@Model.Product.Price.ToString("c")</h2>
-            <h2><a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Product.Id">@Model.Product.Name</a></h2>
-            <h4 class="pull-right">In Stock: @Model.Product.UnitsInStock</h4>
+            <h2><a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Product.Id">@Model.Product.Name</a></h2>
+
             <p>@Model.Product.Description</p>
-            <form asp-controller="Products" asp-action="AddProductToCart" method="post">
+            <form asp-controller="Product" asp-action="AddProductToCart" method="post">
                 <input type="hidden" name="ProductId" value="@Model.Product.Id" />
-                <input type="text" name="Quantity" value="0" />
+                <h4 class="pull-right">In Stock: @Model.Product.UnitsInStock</h4>
                 <button type="submit">Add to Cart</button>
+                <input type="text" class="pull-left" name="Quantity" value="0" autocomplete="off" size="5" />
             </form>
         </div>
     </div>

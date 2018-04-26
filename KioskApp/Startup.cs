@@ -39,6 +39,7 @@ namespace KioskApp
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IVendorRepository, VendorRepository>();
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
@@ -72,8 +73,8 @@ namespace KioskApp
             {
                 routes.MapRoute(
                     name: "categoryfilter",
-                    template: "Products/{action}/{category?}",
-                    defaults: new { Controller = "Products", action = "List" });
+                    template: "Product/{action}/{category?}",
+                    defaults: new { Controller = "Product", action = "List" });
 
                 routes.MapRoute(
                     name: "default",

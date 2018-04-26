@@ -11,40 +11,46 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KioskApp.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;
+        private readonly IVendorRepository _vendorRepository;
+        private readonly ICustomerRepository _customerRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ShoppingCart _shoppingCart;
         private readonly ApplicationDbContext _applicationDbContext;
 
-        public ProductsController(IProductRepository productRespository, ICategoryRepository categoryRepository, UserManager<ApplicationUser> userManager,
-            ShoppingCart shoppingCart, ApplicationDbContext applicationDbContext)
+        public ProductController(IProductRepository productRespository, ICategoryRepository categoryRepository, UserManager<ApplicationUser> userManager,
+            ShoppingCart shoppingCart, ApplicationDbContext applicationDbContext, IVendorRepository vendorRepository, ICustomerRepository customerRepository)
         {
             _productRepository = productRespository;
             _categoryRepository = categoryRepository;
             _userManager = userManager;
             _shoppingCart = shoppingCart;
             _applicationDbContext = applicationDbContext;
+            _vendorRepository = vendorRepository;
+            _customerRepository = customerRepository;
         }
 
         public ViewResult List(string category)
         {
-            //Get the Guid of the current vendor from the UserManager and use that to get only the vendor's products
-
-            //var userGuid = _userManager.GetUserId(HttpContext.User);
-            var userGuid = "4310be48-b16e-4054-af67-50d60bfe78f6";
-
-            ////If the user isn't logged in, redirect to an info page
-            //if (userGuid == null)
-            //{
-            //    return RedirectToAction("ProductWarning");
-            //}
-
-            //var userId = user.Id;
-            IEnumerable<Product> vendorProducts = _productRepository.GetAllProductsByVendor(userGuid)
+            //Get the Guid of the current user from the UserManager
+            var userGuid = _userManager.GetUserId(HttpContext.User);
+            var customer = _customerRepository.GetCustomerByGuid(userGuid);
+            IEnumerable<Product> vendorProducts;
+            //If the current user is a vendor, show that vendor's products
+            if (customer == null)
+            {
+                vendorProducts = _productRepository.GetAllProductsByVendor(userGuid)
                     .OrderBy(p => p.Name);
+            }
+            //If the current user is a customer, show the products of the customer's vendor
+            else
+            {
+                vendorProducts = _productRepository.GetAllProductsByVendorId(customer.VendorId)
+                    .OrderBy(p => p.Name);
+            }
 
             //Get all of the products for the current category
             string currentCategory = string.Empty;
@@ -95,14 +101,7 @@ namespace KioskApp.Controllers
             if (product.UnitsInStock >= model.Quantity)
             {
                 _shoppingCart.AddToCart(product, model.Quantity);
-
-                ////Subtract quantity from units in stock and save to db
-                //product.UnitsInStock -= model.Quantity;
-                //_applicationDbContext.Products.Add(product);
-                //_applicationDbContext.Entry(product).State = EntityState.Modified;
-                //_applicationDbContext.SaveChanges();
             }
-
             return RedirectToAction("List");
         }
 

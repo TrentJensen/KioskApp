@@ -51,7 +51,7 @@ namespace KioskApp.Controllers
         {
             try
             {
-                _orderRepository.AddOrder(order);
+                _orderRepository.CreateOrder(order);
                 if (_orderRepository.SaveAll())
                 {
                     return Created($"/api/ordersapi/{order.Id}", order);

@@ -8,7 +8,7 @@ namespace KioskApp.Models
         IEnumerable<Order> GetOrdersByCustomerId(int customerId);
         IEnumerable<Order> GetOrdersByVendorId(int vendorId);
         Order GetOrderById(int id);
-        void AddOrder(Order order);
+        void CreateOrder(Order order);
         bool SaveAll();
     }
 }

@@ -46,14 +46,17 @@ namespace KioskApp.Models
                 {
                     ShoppingCartId = ShoppingCartId,
                     Product = product,
-                    Amount = 1
+                    Amount = amount
                 };
 
                 _appDbContext.ShoppingCartItems.Add(shoppingCartItem);
             }
             else
             {
-                shoppingCartItem.Amount++;
+                for (int i = 0; i < amount; i++)
+                {
+                    shoppingCartItem.Amount++;
+                }
             }
             _appDbContext.SaveChanges();
         }

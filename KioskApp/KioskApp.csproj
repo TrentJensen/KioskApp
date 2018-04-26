@@ -10,6 +10,12 @@
     <Compile Remove="Data\Migrations\20180419052052_ProductForeignKey.Designer.cs" />
     <Compile Remove="Data\Migrations\20180422160041_AddCategory.cs" />
     <Compile Remove="Data\Migrations\20180422160041_AddCategory.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180422162758_AddCategory.cs" />
+    <Compile Remove="Data\Migrations\20180422162758_AddCategory.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180423211513_OrderUpdate.cs" />
+    <Compile Remove="Data\Migrations\20180423211513_OrderUpdate.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180423212447_OrderUpdate.cs" />
+    <Compile Remove="Data\Migrations\20180423212447_OrderUpdate.Designer.cs" />
   </ItemGroup>
 
 

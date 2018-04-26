@@ -12,10 +12,10 @@ namespace KioskApp.Models
         public ICollection<OrderList> OrderLines { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-        public int SellerId { get; set; }
+        public int VendorId { get; set; }
         public Vendor Vendor { get; set; }
         [DataType(DataType.Currency)]
-        public decimal Total { get; set; }
+        public decimal OrderTotal { get; set; }
         public DateTime OrderDate { get; set; }
         public double CouponDiscount { get; set; }
 

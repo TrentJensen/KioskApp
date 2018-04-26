@@ -1,4 +1,5 @@
 ﻿using KioskApp.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,18 @@ namespace KioskApp.Models
         public IEnumerable<Product> GetAllProductsByVendor(string vendorGuid)
         {
             return _appDbContext.Products.Where(p => p.VendorGuid == vendorGuid);
+        }
+
+        public IEnumerable<Product> GetAllProductsByVendorId(int id)
+        {
+            return _appDbContext.Products.Where(p => p.VendorId == id);
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            _appDbContext.Products.Add(product);
+            _appDbContext.Entry(product).State = EntityState.Modified;
+            _appDbContext.SaveChanges();
         }
     }
 }

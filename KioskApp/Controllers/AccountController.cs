@@ -15,6 +15,7 @@ using KioskApp.Models.AccountViewModels;
 using KioskApp.Services;
 using KioskApp.Data;
 using Microsoft.EntityFrameworkCore;
+using KioskApp.ViewModels;
 
 namespace KioskApp.Controllers
 {
@@ -28,6 +29,7 @@ namespace KioskApp.Controllers
         private readonly ILogger _logger;
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly ICustomerRepository _customerRepository;
+        private readonly IVendorRepository _vendorRepository;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
@@ -35,7 +37,8 @@ namespace KioskApp.Controllers
             IEmailSender emailSender,
             ILogger<AccountController> logger,
             ApplicationDbContext applicationDbContext,
-            ICustomerRepository customerRepository)
+            ICustomerRepository customerRepository,
+            IVendorRepository vendorRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -43,6 +46,7 @@ namespace KioskApp.Controllers
             _logger = logger;
             _applicationDbContext = applicationDbContext;
             _customerRepository = customerRepository;
+            _vendorRepository = vendorRepository;
         }
 
         [TempData]
@@ -479,22 +483,36 @@ namespace KioskApp.Controllers
             //Get the Guid of the current vendor from the UserManager and use that to get only the vendor's products
             var userGuid = _userManager.GetUserId(HttpContext.User);
 
+            //Get customer and Vendors to pass into Create Customer view
             Customer cust = _customerRepository.GetCustomerByGuid(userGuid);
-            return View(cust);
+            List<Vendor> vendors = _vendorRepository.Vendors.ToList();
+            List<SelectListItem> vendorList = new List<SelectListItem>();
+            foreach (var vendor in vendors)
+            {
+                vendorList.Add(new SelectListItem { Text = vendor.FirstName, Value = vendor.Id.ToString() });
+            }
+            CreateCustomerViewModel createCustomerViewModel = new CreateCustomerViewModel
+            {
+                Vendors = vendorList,
+                Customer = cust
+            };
+
+            return View(createCustomerViewModel);
         }
 
         [HttpPost]
-        public IActionResult CreateCustomer(Customer cust)
+        public IActionResult CreateCustomer(CreateCustomerViewModel cust)
         {
             //Get the customer
             var userGuid = _userManager.GetUserId(HttpContext.User);
             Customer customer = _customerRepository.GetCustomerByGuid(userGuid);
 
-            customer.Address = cust.Address;
-            customer.City = cust.City;
-            customer.State = cust.State;
-            customer.Zip = cust.Zip;
-            customer.Loyalty = cust.Loyalty;
+            customer.Address = cust.Customer.Address;
+            customer.City = cust.Customer.City;
+            customer.State = cust.Customer.State;
+            customer.Zip = cust.Customer.Zip;
+            customer.Loyalty = cust.Customer.Loyalty;
+            customer.VendorId = cust.Customer.VendorId;
 
             _applicationDbContext.Customers.Add(customer);
             _applicationDbContext.Entry(customer).State = EntityState.Modified;

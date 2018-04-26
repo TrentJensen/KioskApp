@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - KioskApp</title>
+    <title>@ViewData["Title"] - Norwex Kiosk</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -30,10 +30,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @await Component.InvokeAsync("ShoppingCartSummary")
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     @await Component.InvokeAsync("CategoryMenu")
                     <li><a asp-area="" asp-controller="ShoppingCart" asp-action="Index">Shopping Cart</a></li>
+                    @await Component.InvokeAsync("ShoppingCartSummary")
                 </ul>
                 <div class="navbar-right">
                 @await Html.PartialAsync("_LoginPartial")
@@ -45,7 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - KioskApp</p>
+            <p>&copy; 2018 - Trent Jensen</p>
         </footer>
     </div>
 

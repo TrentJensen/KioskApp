@@ -12,8 +12,8 @@ using System;
 namespace KioskApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180422162758_AddCategory")]
-    partial class AddCategory
+    [Migration("20180423214311_UpdateCategory")]
+    partial class UpdateCategory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -163,11 +163,9 @@ namespace KioskApp.Data.Migrations
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<int>("SellerId");
+                    b.Property<decimal>("OrderTotal");
 
-                    b.Property<decimal>("Total");
-
-                    b.Property<int?>("VendorId");
+                    b.Property<int>("VendorId");
 
                     b.HasKey("Id");
 
@@ -401,7 +399,8 @@ namespace KioskApp.Data.Migrations
 
                     b.HasOne("KioskApp.Models.Vendor", "Vendor")
                         .WithMany("Orders")
-                        .HasForeignKey("VendorId");
+                        .HasForeignKey("VendorId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("KioskApp.Models.OrderList", b =>

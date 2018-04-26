@@ -1,0 +1,12 @@
+﻿@model Product
+
+<div class="thumbnail">
+    <img alt="@Model.Name" src="~/images/@Model.Image">
+    <div class="caption-full">
+        <h3 class="pull-right">@Model.Price.ToString("c")</h3>
+        <h3>
+            <a href="#">@Model.Name</a>
+        </h3>
+        <h4>@Model.Description</h4>
+    </div>
+</div>

@@ -10,15 +10,36 @@ namespace KioskApp.Models
     public class OrderRepository : IOrderRepository
     {
         private readonly ApplicationDbContext _applicationDbContext;
+        private readonly ShoppingCart _shoppingCart;
 
-        public OrderRepository(ApplicationDbContext applicationDbContext)
+        public OrderRepository(ApplicationDbContext applicationDbContext, ShoppingCart shoppingCart)
         {
             _applicationDbContext = applicationDbContext;
+            _shoppingCart = shoppingCart;
         }
 
-        public void AddOrder(Order order)
+        public void CreateOrder(Order order)
         {
+            order.OrderDate = DateTime.Now;
+
             _applicationDbContext.Orders.Add(order);
+
+            var shoppingCartItems = _shoppingCart.ShoppingCartItems;
+
+            foreach (var item in shoppingCartItems)
+            {
+                var orderList = new OrderList()
+                {
+                    Quantity = item.Amount,
+                    ProductId = item.Product.Id,
+                    OrderId = order.Id,
+                    Price = item.Product.Price
+                };
+
+                _applicationDbContext.OrderLists.Add(orderList);
+            }
+
+            _applicationDbContext.SaveChanges();
         }
 
         public IEnumerable<Order> GetAllOrders()
@@ -41,7 +62,7 @@ namespace KioskApp.Models
 
         public IEnumerable<Order> GetOrdersByVendorId(int vendorId)
         {
-            return _applicationDbContext.Orders.Where(p => p.SellerId == vendorId);
+            return _applicationDbContext.Orders.Where(p => p.VendorId == vendorId);
         }
 
         public bool SaveAll()

@@ -162,11 +162,9 @@ namespace KioskApp.Data.Migrations
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<int>("SellerId");
+                    b.Property<decimal>("OrderTotal");
 
-                    b.Property<decimal>("Total");
-
-                    b.Property<int?>("VendorId");
+                    b.Property<int>("VendorId");
 
                     b.HasKey("Id");
 
@@ -400,7 +398,8 @@ namespace KioskApp.Data.Migrations
 
                     b.HasOne("KioskApp.Models.Vendor", "Vendor")
                         .WithMany("Orders")
-                        .HasForeignKey("VendorId");
+                        .HasForeignKey("VendorId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("KioskApp.Models.OrderList", b =>
