@@ -1,0 +1,45 @@
+﻿@model OrderViewModel
+
+<h2>Your shopping cart</h2>
+<div class="row">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Order Date</th>
+                <th>Items</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td class="text-center">@order.OrderDate</td>
+                    <td class="text-center">
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Quantity</th>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in order.OrderLines)
+                                {
+                                    <tr>
+                                        <td class="text-center">@item.Quantity</td>
+                                        <td class="text-center">@item.Product.Name</td>
+                                        <td class="text-center">@item.Price.ToString("c")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="text-right">@order.Total.ToString("c")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -34,9 +34,10 @@
                     @await Component.InvokeAsync("CategoryMenu")
                     <li><a asp-area="" asp-controller="ShoppingCart" asp-action="Index">Shopping Cart</a></li>
                     @await Component.InvokeAsync("ShoppingCartSummary")
+                    <li><a asp-area="" asp-controller="Order" asp-action="Index">Orders</a></li>
                 </ul>
                 <div class="navbar-right">
-                @await Html.PartialAsync("_LoginPartial")
+                    @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>
         </div>

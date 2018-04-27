@@ -115,7 +115,7 @@ namespace KioskApp.Controllers
                 LastName = customer.LastName,
                 Email = customer.Email,
                 VendorId = vendor.Id,
-                Total = shoppingCartViewModel.ShoppingCartTotal
+                Total = _shoppingCart.GetShoppingCartTotal()
             };
 
             _orderRepository.CreateOrder(order);

@@ -21,6 +21,7 @@ namespace KioskApp.Models
         public void CreateOrder(Order order)
         {
             order.OrderDate = DateTime.Now;
+            order.Total = _shoppingCart.GetShoppingCartTotal();
 
             _applicationDbContext.Orders.Add(order);
 
@@ -57,7 +58,12 @@ namespace KioskApp.Models
 
         public IEnumerable<Order> GetOrdersByCustomerId(int customerId)
         {
-            return _applicationDbContext.Orders.Where(p => p.CustomerId == customerId);
+            return _applicationDbContext.Orders.Where(o => o.CustomerId == customerId);
+        }
+
+        public IEnumerable<OrderList> GetOrderListsByOrderId(int orderId)
+        {
+            return _applicationDbContext.OrderLists.Where(o => o.OrderId == orderId);
         }
 
         public IEnumerable<Order> GetOrdersByVendorId(int vendorId)
