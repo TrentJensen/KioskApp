@@ -22,12 +22,28 @@ namespace KioskApp.Models
 
         public Customer GetCustomerByGuid(string guid)
         {
-            return _applicationDbContext.Customers.FirstOrDefault(p => p.LoginId == guid);
+            return _applicationDbContext.Customers.FirstOrDefault(c => c.LoginId == guid);
         }
 
         public IEnumerable<Customer> GetCustomersByVendor(int vendorId)
         {
-            return _applicationDbContext.Customers.Where(p => p.VendorId == vendorId);
+            return _applicationDbContext.Customers.Where(c => c.VendorId == vendorId);
+        }
+
+        public Customer GetCustomerById(int id)
+        {
+            return _applicationDbContext.Customers.FirstOrDefault(c => c.Id == id);
+        }
+
+        public void AddCustomer(Customer cust)
+        {
+            _applicationDbContext.Customers.Add(cust);
+            _applicationDbContext.SaveChanges();
+        }
+
+        IEnumerable<Customer> ICustomerRepository.GetCustomersByVendor(int vendorId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

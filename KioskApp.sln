@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioskApp", "KioskApp\KioskApp.csproj", "{3A8429BC-18E8-4147-AAFF-97A2C64357B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioskApp.Test", "KioskApp.Test\KioskApp.Test.csproj", "{8BB679D5-6D5F-4B78-8F78-553AA0544381}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioskApp.Test", "KioskApp.Test\KioskApp.Test.csproj", "{8BB679D5-6D5F-4B78-8F78-553AA0544381}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D55BE910-B158-4200-8982-09A7A69D0A10}"
 EndProject

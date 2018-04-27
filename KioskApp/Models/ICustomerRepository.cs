@@ -7,5 +7,7 @@ namespace KioskApp.Models
         IEnumerable<Customer> GetAllCustomers();
         Customer GetCustomerByGuid(string guid);
         IEnumerable<Customer> GetCustomersByVendor(int vendorId);
+        Customer GetCustomerById(int id);
+        void AddCustomer(Customer cust);
     }
 }

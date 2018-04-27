@@ -6,8 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20180419041615_InitialMigration.cs" />
+    <Compile Remove="Data\Migrations\20180419041615_InitialMigration.Designer.cs" />
     <Compile Remove="Data\Migrations\20180419052052_ProductForeignKey.cs" />
     <Compile Remove="Data\Migrations\20180419052052_ProductForeignKey.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180420000910_AddVendorToProduct.cs" />
+    <Compile Remove="Data\Migrations\20180420000910_AddVendorToProduct.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180421001908_UpdateCustomer.cs" />
+    <Compile Remove="Data\Migrations\20180421001908_UpdateCustomer.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180421012119_CustomerChanges.cs" />
+    <Compile Remove="Data\Migrations\20180421012119_CustomerChanges.Designer.cs" />
     <Compile Remove="Data\Migrations\20180422160041_AddCategory.cs" />
     <Compile Remove="Data\Migrations\20180422160041_AddCategory.Designer.cs" />
     <Compile Remove="Data\Migrations\20180422162758_AddCategory.cs" />
@@ -16,6 +24,12 @@
     <Compile Remove="Data\Migrations\20180423211513_OrderUpdate.Designer.cs" />
     <Compile Remove="Data\Migrations\20180423212447_OrderUpdate.cs" />
     <Compile Remove="Data\Migrations\20180423212447_OrderUpdate.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180423214311_UpdateCategory.cs" />
+    <Compile Remove="Data\Migrations\20180423214311_UpdateCategory.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180427011858_UpdateOrderForGuests.cs" />
+    <Compile Remove="Data\Migrations\20180427011858_UpdateOrderForGuests.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180427022353_GuestCheckout.cs" />
+    <Compile Remove="Data\Migrations\20180427022353_GuestCheckout.Designer.cs" />
   </ItemGroup>
 
 
