@@ -2,10 +2,18 @@
 
 <h2>Your orders</h2>
 <div class="row">
+    <form asp-action="Index" method="get">
+        <p>
+            Search by Date: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Filter" class="btn btn-default"/> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </form>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Order Date</th>
+                <th>Name</th>
                 <th>Items</th>
                 <th>Total</th>
             </tr>
@@ -15,6 +23,7 @@
             {
                 <tr>
                     <td class="text-center">@order.OrderDate</td>
+                    <td class="text-center">@order.FirstName @order.LastName</td>
                     <td class="text-center">
 
                         <table class="table table-bordered table-striped">
