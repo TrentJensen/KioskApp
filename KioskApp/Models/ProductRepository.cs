@@ -36,7 +36,23 @@ namespace KioskApp.Models
             return _appDbContext.Products.Where(p => p.VendorId == id);
         }
 
-        public void UpdateProduct(Product product)
+		public void AddProductStockById(int productId, int quantity)
+		{
+			Product product = _appDbContext.Products.FirstOrDefault(p => p.Id == productId);
+			product.UnitsInStock += quantity;
+			_appDbContext.Entry(product).State = EntityState.Modified;
+			_appDbContext.SaveChanges();
+		}
+
+		public void RemoveProductStockById(int productId, int quantity)
+		{
+			Product product = _appDbContext.Products.FirstOrDefault(p => p.Id == productId);
+			product.UnitsInStock -= quantity;
+			_appDbContext.Entry(product).State = EntityState.Modified;
+			_appDbContext.SaveChanges();
+		}
+
+		public void UpdateProduct(Product product)
         {
             _appDbContext.Products.Add(product);
             _appDbContext.Entry(product).State = EntityState.Modified;

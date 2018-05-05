@@ -4,7 +4,7 @@
 <div class="row">
     <form asp-action="Index" method="get">
         <p>
-            Search by Date: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            Search by First or Last Name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
             <input type="submit" value="Filter" class="btn btn-default"/> |
             <a asp-action="Index">Back to Full List</a>
         </p>

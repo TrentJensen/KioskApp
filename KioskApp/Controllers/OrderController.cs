@@ -89,7 +89,8 @@ namespace KioskApp.Controllers
                 //Select only orders that match the searchString
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    orders = orders.Where(o => o.FirstName.ToLower().StartsWith(searchString) || o.LastName.ToLower().StartsWith(searchString));
+					searchString = searchString.ToLower();
+					orders = orders.Where(o => o.FirstName.ToLower().StartsWith(searchString) || o.LastName.ToLower().StartsWith(searchString));
                 }
 
                 orderViewModel.Orders = orders;

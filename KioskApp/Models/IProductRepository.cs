@@ -8,6 +8,8 @@ namespace KioskApp.Models
         IEnumerable<Product> GetAllProductsByVendor(string vendorGuid);
         IEnumerable<Product> GetAllProductsByVendorId(int id);
         Product GetProductbyId(int productID);
-        void UpdateProduct(Product product);
+		void AddProductStockById(int productId, int quantity);
+		void RemoveProductStockById(int productId, int quantity);
+		void UpdateProduct(Product product);
     }
 }
