@@ -122,8 +122,8 @@ namespace KioskApp.Data
                     );
             }
 
-            context.SaveChanges();
-        }
+			context.SaveChanges();
+		}
 
         private static Dictionary<string, Category> _categories;
 

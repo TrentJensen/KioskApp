@@ -257,6 +257,7 @@ namespace KioskApp.Controllers
                         };
                         _applicationDbContext.Vendors.Add(vendor);
                         _applicationDbContext.SaveChanges();
+						PopulateNewVendorInventory(vendor.LoginId, vendor.Id);
                         return RedirectToLocal(returnUrl);
                     }
                     else if (model.Role[0].Equals("Customer"))
@@ -519,6 +520,187 @@ namespace KioskApp.Controllers
             _applicationDbContext.SaveChanges();
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
+		private void PopulateNewVendorInventory(string loginId, int vendorId)
+		{
+
+			{
+				_applicationDbContext.Products.AddRangeAsync
+					(
+					new Product
+					{
+						Name = "EnviroCloth",
+						Description = "Dense microfiber cloth",
+						Price = 17.99M,
+						VendorCost = 11.70M,
+						Color = ColorEnum.Graphite,
+						Image = @"envirocloth-graphite.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "EnviroCloth",
+						Description = "Dense microfiber cloth",
+						Price = 17.99M,
+						VendorCost = 11.70M,
+						Color = ColorEnum.Pink,
+						Image = @"envirocloth-pink.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "EnviroCloth",
+						Description = "Dense microfiber cloth",
+						Price = 17.99M,
+						VendorCost = 11.70M,
+						Color = ColorEnum.Green,
+						Image = @"envirocloth-green.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "EnviroCloth",
+						Description = "Dense microfiber cloth",
+						Price = 17.99M,
+						VendorCost = 11.70M,
+						Color = ColorEnum.Blue,
+						Image = @"envirocloth-blue.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "Window Cloth",
+						Description = "Polishing microfiber",
+						Price = 19.99M,
+						VendorCost = 13.00M,
+						Color = ColorEnum.Purple,
+						Image = @"window-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 19.99M,
+						VendorCost = 13.00M,
+						Color = ColorEnum.Tranquil,
+						Image = @"three-pack-tranquil.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 19.99M,
+						VendorCost = 13.00M,
+						Color = ColorEnum.Vibrant,
+						Image = @"three-pack-vibrant.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 19.99M,
+						VendorCost = 13.00M,
+						Color = ColorEnum.Graphite,
+						Image = @"three-pack-graphite.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 19.99M,
+						VendorCost = 13.00M,
+						Color = ColorEnum.Coastal,
+						Image = @"three-pack-coastal.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "All Purpose Kitchen Cloth",
+						Description = "All purpose microfiber",
+						Price = 13.99M,
+						VendorCost = 9.10M,
+						Color = ColorEnum.Graphite,
+						Image = @"all-purpose-kitchen-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					}, 
+					new Product
+					{
+						Name = "Kitchen Scrub Cloth",
+						Description = "Scrubbing microfiber",
+						Price = 13.99M,
+						VendorCost = 9.10M,
+						Color = ColorEnum.Blue,
+						Image = @"kitchen-scrub-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					}, 
+					new Product
+					{
+						Name = "Veggie and Fruit Scrub Cloth",
+						Description = "Scrubs and peels vegetables and fruit",
+						Price = 13.99M,
+						VendorCost = 9.10M,
+						Color = ColorEnum.Green,
+						Image = @"veggie-and-fruit-scrub-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+
+
+
+					);
+			}
+		}
 
         #region Helpers
 
