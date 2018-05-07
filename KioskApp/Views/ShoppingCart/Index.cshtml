@@ -1,50 +1,72 @@
 ﻿@model ShoppingCartViewModel
 <h2>Your shopping cart</h2>
 <div class="row">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Selected amount</th>
-                <th>Product</th>
-                <th class="text-right">Price</th>
-                <th>Delete</th>
-                <th class="text-right">Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
-            {
-                <tr>
-                    <td class="text-center">@line.Amount</td>
-                    <td class="text-left">@line.Product.Name</td>
-                    <td class="text-right">@line.Product.Price.ToString("c")</td>
-                    <td class="text-center">
-                        <form asp-controller="ShoppingCart" asp-action="DeleteFromCart" method="post">
-                            <input type="hidden" name="Id" value="@line.Id" />
-                            <button type="submit" class="btn btn-default">Delete</button>
-                        </form>
-                    </td>
-                    <td class="text-right">@((line.Amount * line.Product.Price).ToString("c"))</td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-right">Total:</td>
-                <td class="text-right">@Model.ShoppingCartTotal.ToString("c")</td>
-            </tr>
-        </tfoot>
-    </table>
-    @if (@Model.ShoppingCart.ShoppingCartItems.Count != 0)
-    {
-        <form asp-action="Checkout" method="post" role="form">
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-5">
-                    <input type="submit" class="btn btn-primary" value="Complete order" />
-                </div>
-            </div>
-        </form>
-    }
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Selected amount</th>
+				<th>Product</th>
+				<th class="text-right">Price</th>
+				<th>Delete</th>
+				<th class="text-right">Subtotal</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+			{
+				<tr>
+					<td class="text-center">@line.Amount</td>
+					<td class="text-left">@line.Product.Name</td>
+					<td class="text-right">@line.Product.Price.ToString("c")</td>
+					<td class="text-center">
+						<form asp-controller="ShoppingCart" asp-action="DeleteFromCart" method="post">
+							<input type="hidden" name="Id" value="@line.Id" />
+							<button type="submit" class="btn btn-default">Delete</button>
+						</form>
+					</td>
+					<td class="text-right">@((line.Amount * line.Product.Price).ToString("c"))</td>
+				</tr>
+			}
+		</tbody>
+		<tfoot>
+			<tr>
+				@if (Model.SalesTax != null)
+					{
+						<td colspan="4" class="text-right">Sales Tax:</td>
+						<td class="text-right">@(((Model.SalesTax - 1) * Model.ShoppingCartTotal).Value.ToString("c"))</td>
+					}
+			</tr>
+			<tr>
+				<td colspan="4" class="text-right">Total:</td>
+				<td class="text-right">@Model.ShoppingCartTotal.ToString("c")</td>
+			</tr>
+		</tfoot>
+	</table>
+	@if (@Model.ShoppingCart.ShoppingCartItems.Count != 0)
+	{
+		@if (Model.SalesTax == null)
+		{
+			<form asp-Controller="ShoppingCart" asp-action="Index" method="post" role="form">
+				<div class="form-group">
+					Sales Tax:
+					<input type="text" name="SalesTax" />
+					<button type="submit" class="btn btn-default">Add Sales Tax:</button>
+				</div>
+			</form>
+		}
+		else
+		{
+			<div>
 
+			</div>
+		}
+		<form asp-action="Checkout" method="post" role="form">
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-5">
+					<input type="submit" class="btn btn-primary" value="Complete order" />
+				</div>
+			</div>
+		</form>
+	}
 </div>
 

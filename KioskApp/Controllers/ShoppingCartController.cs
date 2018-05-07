@@ -19,7 +19,7 @@ namespace KioskApp.Controllers
         private readonly ShoppingCart _shoppingCart;
         private Customer guestCustomer { get; set; }
 
-        public ShoppingCartController(IProductRepository productRepository, IVendorRepository vendorRepository, IOrderRepository orderRepository, 
+		public ShoppingCartController(IProductRepository productRepository, IVendorRepository vendorRepository, IOrderRepository orderRepository, 
             ICustomerRepository customerRepository, UserManager<ApplicationUser> userManager, ShoppingCart shoppingCart)
         {
             _productRepository = productRepository;
@@ -35,14 +35,27 @@ namespace KioskApp.Controllers
             var items = _shoppingCart.GetShoppingCartItems();
             _shoppingCart.ShoppingCartItems = items;
 
-            var shoppingCartViewModel = new ShoppingCartViewModel
-            {
-                ShoppingCart = _shoppingCart,
-                ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
-            };
+			var shoppingCartViewModel = new ShoppingCartViewModel();
+			shoppingCartViewModel.ShoppingCart = _shoppingCart;
+			shoppingCartViewModel.ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal();
 
             return View(shoppingCartViewModel);
         }
+
+		[HttpPost]
+		public IActionResult Index(decimal salesTax)
+		{
+			var items = _shoppingCart.GetShoppingCartItems();
+			_shoppingCart.ShoppingCartItems = items;
+			_shoppingCart.SalesTax = salesTax;
+
+			var shoppingCartViewModel = new ShoppingCartViewModel();
+			shoppingCartViewModel.ShoppingCart = _shoppingCart;
+			shoppingCartViewModel.SalesTax = salesTax;
+			shoppingCartViewModel.ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal();
+
+			return View(shoppingCartViewModel);
+		}
 
         [HttpPost]
         public IActionResult Checkout(ShoppingCartViewModel shoppingCartViewModel)
@@ -64,13 +77,14 @@ namespace KioskApp.Controllers
                 return RedirectToAction("GuestCheckout");
             }
 
-            //if the user is a registered customer            
-            Order order = new Order
-            {
-                OrderDate = DateTime.Now,
-                CustomerId = cust.Id,
-                VendorId = cust.VendorId,
-                Total = shoppingCartViewModel.ShoppingCartTotal
+			//if the user is a registered customer            
+			Order order = new Order
+			{
+				OrderDate = DateTime.Now,
+				CustomerId = cust.Id,
+				VendorId = cust.VendorId,
+				//Total = shoppingCartViewModel.ShoppingCartTotal
+				Total = _shoppingCart.GetShoppingCartTotal()
             };
 
             _orderRepository.CreateOrder(order);

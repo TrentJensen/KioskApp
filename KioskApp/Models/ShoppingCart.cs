@@ -20,6 +20,7 @@ namespace KioskApp.Models
         public string ShoppingCartId { get; set; }
 
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
+		public decimal? SalesTax { get; set; }
 
         public static ShoppingCart GetCart(IServiceProvider services)
         {
@@ -111,6 +112,10 @@ namespace KioskApp.Models
         {
             var total = _appDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
                 .Select(c => c.Product.Price * c.Amount).Sum();
+			if (SalesTax != null)
+			{
+				total *= SalesTax.Value;
+			}
             return (decimal)total;
         }
     }

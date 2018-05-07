@@ -694,7 +694,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					},
+					}
 
 
 
