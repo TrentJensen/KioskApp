@@ -31,6 +31,7 @@ namespace KioskApp.Models
         Mango,
         Tranquil,
         Coastal,
-        Vibrant
+        Vibrant,
+		Yellow
     }
 }

@@ -599,7 +599,22 @@ namespace KioskApp.Controllers
 					}, 
 					new Product
 					{
-						Name = "Body Cloth",
+						Name = "Window Cloth",
+						Description = "Polishing microfiber",
+						Price = 19.99M,
+						VendorCost = 13.00M,
+						Color = ColorEnum.Pink,
+						Image = @"window-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+
+					new Product
+					{
+						Name = "Body Cloth Pack",
 						Description = "Dense microfiber cloth",
 						Price = 19.99M,
 						VendorCost = 13.00M,
@@ -613,7 +628,7 @@ namespace KioskApp.Controllers
 					}, 
 					new Product
 					{
-						Name = "Body Cloth",
+						Name = "Body Cloth Pack",
 						Description = "Dense microfiber cloth",
 						Price = 19.99M,
 						VendorCost = 13.00M,
@@ -627,7 +642,7 @@ namespace KioskApp.Controllers
 					}, 
 					new Product
 					{
-						Name = "Body Cloth",
+						Name = "Body Cloth Pack",
 						Description = "Dense microfiber cloth",
 						Price = 19.99M,
 						VendorCost = 13.00M,
@@ -641,7 +656,7 @@ namespace KioskApp.Controllers
 					}, 
 					new Product
 					{
-						Name = "Body Cloth",
+						Name = "Body Cloth Pack",
 						Description = "Dense microfiber cloth",
 						Price = 19.99M,
 						VendorCost = 13.00M,
@@ -653,6 +668,398 @@ namespace KioskApp.Controllers
 						VendorGuid = loginId,
 						CategoryId = 1
 					}, 
+					new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 7.00M,
+						VendorCost = 4.55M,
+						Color = ColorEnum.Denim,
+						Image = @"three-pack-tranquil.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 7.00M,
+						VendorCost = 4.55M,
+						Color = ColorEnum.Lavender,
+						Image = @"three-pack-tranquil.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 7.00M,
+						VendorCost = 4.55M,
+						Color = ColorEnum.Vanilla,
+						Image = @"three-pack-tranquil.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					}, 
+					new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 7.00M,
+						VendorCost = 4.55M,
+						Color = ColorEnum.Yellow,
+						Image = @"three-pack-vibrant.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Body Cloth",
+						Description = "Dense microfiber cloth",
+						Price = 7.00M,
+						VendorCost = 4.55M,
+						Color = ColorEnum.Pink,
+						Image = @"three-pack-vibrant.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "All-Purpose Cloth",
+						Description = "Microfiber cloth for use anywhere",
+						Price = 13.99M,
+						VendorCost = 9.10M,
+						Color = ColorEnum.None,
+						Image = @"all-purpose-kitchen-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+					new Product
+					{
+						Name = "Baby Body Pack",
+						Description = "Smaller body cloth",
+						Price = 14.99M,
+						VendorCost = 9.75M,
+						Color = ColorEnum.None,
+						Image = @"baby-body-pack.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 7
+					},
+					new Product
+					{
+						Name = "Body Scrub Mitt",
+						Description = "Rejuvenate your entire body with our Body Scrub Mitt.",
+						Price = 14.99M,
+						VendorCost = 9.75M,
+						Color = ColorEnum.None,
+						Image = @"body-scrub-mitt.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Bathroom Scrub Mitt",
+						Description = "Microfiber on one side, scrub mesh on the other",
+						Price = 24.99M,
+						VendorCost = 16.24M,
+						Color = ColorEnum.Graphite,
+						Image = @"bathroom-scrubb-mitt-graphite.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Bath Towel",
+						Description = "Large microfiber bath towel with silver",
+						Price = 39.99M,
+						VendorCost = 25.99M,
+						Color = ColorEnum.Denim,
+						Image = @"bath-towel-denim.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Bath Towel",
+						Description = "Large microfiber bath towel with silver",
+						Price = 39.99M,
+						VendorCost = 25.99M,
+						Color = ColorEnum.Lavender,
+						Image = @"bath-towel-lavender.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Bath Towel",
+						Description = "Large microfiber bath towel with silver",
+						Price = 39.99M,
+						VendorCost = 25.99M,
+						Color = ColorEnum.Teal,
+						Image = @"bath-towel-teal.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Bath Towel",
+						Description = "Large microfiber bath towel with silver",
+						Price = 39.99M,
+						VendorCost = 25.99M,
+						Color = ColorEnum.Graphite,
+						Image = @"bath-towel-graphite.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Bath Towel",
+						Description = "Large microfiber bath towel with silver",
+						Price = 39.99M,
+						VendorCost = 25.99M,
+						Color = ColorEnum.Vanilla,
+						Image = @"bath-towel-vanilla.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Blue Diamond Bathroom Cleaner",
+						Description = "Enzyme for cleaning mold, mildew, and urine",
+						Price = 29.99M,
+						VendorCost = 19.49M,
+						Color = ColorEnum.Denim,
+						Image = @"blue-diamond-bathroom-cleaner.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Body Balm",
+						Description = "Glide away chapped skin on elbows, hands, and feet",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.None,
+						Image = @"body-balm.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Bath Towel",
+						Description = "Large microfiber bath towel with silver",
+						Price = 39.99M,
+						VendorCost = 25.99M,
+						Color = ColorEnum.Denim,
+						Image = @"bath-towel-denim.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					}, 
+					new Product
+					{
+						Name = "Car Cloth",
+						Description = "Large microfiber cloth for drying your car",
+						Price = 25.99M,
+						VendorCost = 16.89M,
+						Color = ColorEnum.None,
+						Image = @"car-mitt-car-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 7
+					},
+					new Product
+					{
+						Name = "Car Wash Mitt",
+						Description = "Layered microfiber mitt to polish your car",
+						Price = 26.99M,
+						VendorCost = 17.54M,
+						Color = ColorEnum.None,
+						Image = @"car-mitt-car-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 7
+					},
+					new Product
+					{
+						Name = "Chenille Hand Towel",
+						Description = "Microfiber fingered hand towel with silver",
+						Price = 24.99M,
+						VendorCost = 16.29M,
+						Color = ColorEnum.None,
+						Image = @"chenille-hand-towels-all-colors.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Cleaning Paste",
+						Description = "Paste for scrubbing with minimum abrasion",
+						Price = 29.99M,
+						VendorCost = 19.49M,
+						Color = ColorEnum.None,
+						Image = @"cleaning-paste.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+					new Product
+					{
+						Name = "Counter Cloth",
+						Description = "Microfiber cloth to replace paper towels",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.Blue,
+						Image = @"counter-cloths-marine-teal-seamist.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+					new Product
+					{
+						Name = "Counter Cloth",
+						Description = "Microfiber cloth to replace paper towels",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.Graphite,
+						Image = @"counter-cloths-slate-vanilla-mushroom.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+					new Product
+					{
+						Name = "Crystal Deoderant",
+						Description = "Deoderizing crystal for use on your body",
+						Price = 13.99M,
+						VendorCost = 9.09M,
+						Color = ColorEnum.None,
+						Image = @"crystal-deoderant.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Cutting Board (Large)",
+						Description = "Large rice husk cutting board",
+						Price = 39.99M,
+						VendorCost = 25.99M,
+						Color = ColorEnum.None,
+						Image = @"cutting-board.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Deodorant Stick",
+						Description = "Natural chemical free deoderant",
+						Price = 15.99M,
+						VendorCost = 10.39M,
+						Color = ColorEnum.None,
+						Image = @"deodorant-stick.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Descaler",
+						Description = "Enzyme for lime and rust",
+						Price = 29.99M,
+						VendorCost = 19.49M,
+						Color = ColorEnum.None,
+						Image = @"descaler.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Dish Cloth",
+						Description = "Microfiber cloth for drying dishes",
+						Price = 9.99M,
+						VendorCost = 6.49M,
+						Color = ColorEnum.Blue,
+						Image = @"dish-cloth-blue.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+
 					new Product
 					{
 						Name = "All Purpose Kitchen Cloth",
@@ -694,7 +1101,22 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
+					},                   
+					new Product
+					{
+						Name = "Veggie and Fruit Scrub Cloth",
+						Description = "Scrubs and peels vegetables and fruit",
+						Price = 13.99M,
+						VendorCost = 9.10M,
+						Color = ColorEnum.Green,
+						Image = @"veggie-and-fruit-scrub-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
 					}
+
 
 
 

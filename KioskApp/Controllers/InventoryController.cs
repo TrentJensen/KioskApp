@@ -45,20 +45,11 @@ namespace KioskApp.Controllers
         }
 
 		[HttpPost]
-		public IActionResult AddProduct(InventoryViewModel model)
+		public IActionResult ChangeProductAmount(InventoryViewModel model)
 		{
 			Product prod = _productRepository.GetProductbyId(model.ProductId);
-			_productRepository.AddProductStockById(model.ProductId, model.Quantity);
+			_productRepository.ChangeProductStockById(model.ProductId, model.Quantity);
 			return RedirectToAction("Index");
 		}
-
-		[HttpPost]
-		public IActionResult RemoveProduct(InventoryViewModel model)
-		{
-			Product prod = _productRepository.GetProductbyId(model.ProductId);
-			_productRepository.RemoveProductStockById(model.ProductId, model.Quantity);
-			return RedirectToAction("Index");
-		}
-
     }
 }

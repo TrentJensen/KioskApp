@@ -16,8 +16,7 @@
 				<th>Price</th>
 				<th>Your Cost</th>
 				<th>In Stock</th>
-				<th>Add</th>
-				<th>Remove</th>
+				<th>Change</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,14 +30,7 @@
 					<td>
 						<form asp-controller="Inventory" method="post">
 							<input type="hidden" name="ProductId" value="@product.Id" />
-							<button type="submit" class="btn btn-default" asp-controller="Inventory" asp-action="AddProduct">Add</button>
-							<input type="text" class="pull-left" name="Quantity" value="0" autocomplete="off" size="5" />
-						</form>
-					</td>
-					<td>
-						<form asp-controller="Inventory" method="post">
-							<input type="hidden" name="ProductId" value="@product.Id" />
-							<button type="submit" class="btn btn-default" asp-controller="Inventory" asp-action="RemoveProduct">Remove</button>
+							<button type="submit" class="btn btn-default" asp-controller="Inventory" asp-action="ChangeProductAmount">Change</button>
 							<input type="text" class="pull-left" name="Quantity" value="0" autocomplete="off" size="5" />
 						</form>
 					</td>
