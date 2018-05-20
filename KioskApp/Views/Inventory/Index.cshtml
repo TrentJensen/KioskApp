@@ -16,22 +16,25 @@
 				<th>Price</th>
 				<th>Your Cost</th>
 				<th>In Stock</th>
-				<th>Change</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var product in Model.Products)
 			{
 				<tr>
-					<td class="text-left">@product.Name</td>
+					<td class="text-left">@product.Name
+					@if (product.Color != ColorEnum.None)
+					{
+						<br />@product.Color
+					}
+					</td>
 					<td class="text-center">@product.Price.ToString("c")</td>
 					<td class="text-center">@product.VendorCost.ToString("c")</td>
-					<td class="text-center">@product.UnitsInStock</td>
 					<td>
 						<form asp-controller="Inventory" method="post">
 							<input type="hidden" name="ProductId" value="@product.Id" />
 							<button type="submit" class="btn btn-default" asp-controller="Inventory" asp-action="ChangeProductAmount">Change</button>
-							<input type="text" class="pull-left" name="Quantity" value="0" autocomplete="off" size="5" />
+							<input type="text" class="pull-left" name="Quantity" value="@product.UnitsInStock" autocomplete="off" size="5" />
 						</form>
 					</td>
 				</tr>
