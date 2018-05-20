@@ -540,7 +540,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "EnviroCloth",
@@ -554,7 +554,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "EnviroCloth",
@@ -568,7 +568,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "EnviroCloth",
@@ -582,7 +582,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "Window Cloth",
@@ -596,7 +596,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "Window Cloth",
@@ -625,7 +625,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "Body Cloth Pack",
@@ -639,7 +639,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "Body Cloth Pack",
@@ -653,7 +653,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "Body Cloth Pack",
@@ -667,7 +667,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "Body Cloth",
@@ -694,7 +694,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "Body Cloth",
@@ -708,7 +708,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}, 
+					},
 					new Product
 					{
 						Name = "Body Cloth",
@@ -904,7 +904,7 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 3
-					}, 
+					},
 					new Product
 					{
 						Name = "Car Cloth",
@@ -1059,38 +1059,891 @@ namespace KioskApp.Controllers
 						VendorGuid = loginId,
 						CategoryId = 5
 					},
-
 					new Product
 					{
-						Name = "All Purpose Kitchen Cloth",
-						Description = "All purpose microfiber",
-						Price = 13.99M,
-						VendorCost = 9.10M,
-						Color = ColorEnum.Graphite,
-						Image = @"all-purpose-kitchen-cloth.jpg",
+						Name = "Dishwashing Liquid",
+						Description = "Degreaser for hand washing dishes",
+						Price = 9.99M,
+						VendorCost = 6.49M,
+						Color = ColorEnum.None,
+						Image = @"dishwashing-liquid.jpg",
 						UnitsInStock = 0,
 						IsLimitedEdition = false,
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 5
-					}, 
+					},
+					new Product
+					{
+						Name = "Dusting Mitt",
+						Description = "Microfiber mitt attracts and holds dust",
+						Price = 19.49M,
+						VendorCost = 12.67M,
+						Color = ColorEnum.Blue,
+						Image = @"dusting-mitt-blue.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Dusting Mitt",
+						Description = "Microfiber mitt attracts and holds dust",
+						Price = 19.49M,
+						VendorCost = 12.67M,
+						Color = ColorEnum.Green,
+						Image = @"dusting-mitt-green.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Envirowand",
+						Description = "Our bendable dusting wand",
+						Price = 31.99M,
+						VendorCost = 20.79M,
+						Color = ColorEnum.None,
+						Image = @"envirowand.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "EnviroSponges",
+						Description = "Dual-sided, multi-purpose microfiber sponge",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.None,
+						Image = @"envirosponge.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+					new Product
+					{
+						Name = "Ergonomic Toilet Brush",
+						Description = "Anti-bacterial toilet brush",
+						Price = 20.99M,
+						VendorCost = 13.64M,
+						Color = ColorEnum.None,
+						Image = @"ergonomic_toilet_brush.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Dryer Balls",
+						Description = "Fluff and tumble balls to replace dryer sheets",
+						Price = 29.99M,
+						VendorCost = 19.49M,
+						Color = ColorEnum.None,
+						Image = @"fluff-and-tumble-dryer-balls.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Hand Cream",
+						Description = "Chemical-free hand cream",
+						Price = 14.99M,
+						VendorCost = 9.74M,
+						Color = ColorEnum.None,
+						Image = @"hand-cream.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Hand Soap Sample",
+						Description = "Chemical-free hand soap",
+						Price = 5.00M,
+						VendorCost = 3.25M,
+						Color = ColorEnum.None,
+						Image = @"hand-.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Hand Towel",
+						Description = "Microfiber hand towel with silver",
+						Price = 18.99M,
+						VendorCost = 12.34M,
+						Color = ColorEnum.Denim,
+						Image = @"hand-towel-denim.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Hand Towel",
+						Description = "Microfiber hand towel with silver",
+						Price = 18.99M,
+						VendorCost = 12.34M,
+						Color = ColorEnum.Lavender,
+						Image = @"hand-towel-lavender.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Kids Dusting Mitt",
+						Description = "Kid-sized dusting mitt",
+						Price = 12.99M,
+						VendorCost = 8.44M,
+						Color = ColorEnum.None,
+						Image = @"kids-dust-mitt.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 7
+					},
+					new Product
+					{
+						Name = "Kids EnviroCloth",
+						Description = "Kid-sized EnviroCloth",
+						Price = 15.99M,
+						VendorCost = 10.39M,
+						Color = ColorEnum.None,
+						Image = @"kids-envirocloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 7
+					},
+					new Product
+					{
+						Name = "Kids Window Cloth",
+						Description = "Kid-sized Window Cloth",
+						Price = 15.99M,
+						VendorCost = 10.39M,
+						Color = ColorEnum.None,
+						Image = @"kids-window-cloth.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 7
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Blue,
+						Image = @"kitchen-cloth-blue.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Charcoal,
+						Image = @"kitchen-cloth-charcoal.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Eggplant,
+						Image = @"kitchen-cloth-eggplant.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Graphite,
+						Image = @"kitchen-cloth-graphite.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Latte,
+						Image = @"kitchen-cloth-latte.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Pomegranite,
+						Image = @"kitchen-cloth-pomegranite.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Seamist,
+						Image = @"kitchen-cloth-seamist.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Sunflower,
+						Image = @"kitchen-cloth-sunflower.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Cloth",
+						Description = "Extra-absorbent and lint-free microfiber",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.Teal,
+						Image = @"kitchen-cloth-teal.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
 					new Product
 					{
 						Name = "Kitchen Scrub Cloth",
-						Description = "Scrubbing microfiber",
+						Description = "Microfiber cloth with scrubby fibers",
 						Price = 13.99M,
-						VendorCost = 9.10M,
-						Color = ColorEnum.Blue,
+						VendorCost = 9.09M,
+						Color = ColorEnum.None,
 						Image = @"kitchen-scrub-cloth.jpg",
 						UnitsInStock = 0,
 						IsLimitedEdition = false,
 						VendorId = vendorId,
 						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Set",
+						Description = "The Kitchen Cloth and Towel together",
+						Price = 27.99M,
+						VendorCost = 18.19M,
+						Color = ColorEnum.None,
+						Image = @"kitchen-towel-and-cloth-set-blue.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Kitchen Towel",
+						Description = "Full-size absorbent cloth for drying dishes",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.Blue,
+						Image = @"kitchen-towel-blue.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Laundry Soap, Full-Size",
+						Description = "Concentrated laundry detergent",
+						Price = 24.99M,
+						VendorCost = 16.24M,
+						Color = ColorEnum.None,
+						Image = @"ultra-power-plus-laundry-detergent.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Laundry Soap, Host",
+						Description = "Concentrated laundry detergent",
+						Price = 15.00M,
+						VendorCost = 9.75M,
+						Color = ColorEnum.None,
+						Image = @"ultra-power-plus-laundry-detergent.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Liquid Laundry Soap",
+						Description = "Concentrated laundry detergent",
+						Price = 34.99M,
+						VendorCost = 22.74M,
+						Color = ColorEnum.None,
+						Image = @"liquid-laundry-detergent.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Liquid Laundry Soap, Sample",
+						Description = "Concentrated laundry detergent",
+						Price = 7.00M,
+						VendorCost = 4.55M,
+						Color = ColorEnum.None,
+						Image = @"liquid-laundry-detergent.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Lint Mitt",
+						Description = "Small reusable mitt for removing lint",
+						Price = 12.99M,
+						VendorCost = 8.44M,
+						Color = ColorEnum.None,
+						Image = @"lint-mitt.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Lip Balm",
+						Description = "3 pack organic, chemical-free lip balm",
+						Price = 9.99M,
+						VendorCost = 6.49M,
+						Color = ColorEnum.None,
+						Image = @"lip-balm3.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Makeup Cloth",
+						Description = "Microfiber cloth for removing makeup",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.None,
+						Image = @"makeup-removal-cloth-set.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 3
+					},
+					new Product
+					{
+						Name = "Mattress Cleaner",
+						Description = "Enzyme-based cleaner to target organic matter in your mattress",
+						Price = 29.99M,
+						VendorCost = 19.49M,
+						Color = ColorEnum.None,
+						Image = @"mattress_cleaner.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Mighty Mesh Pot Scrubber",
+						Description = "Stainless steel scrubber with handle",
+						Price = 9.99M,
+						VendorCost = 6.49M,
+						Color = ColorEnum.None,
+						Image = @"mighty-mess-pot-scrubber.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
 						CategoryId = 5
-					}, 
+					},
 					new Product
 					{
-						Name = "Veggie and Fruit Scrub Cloth",
+						Name = "Stain Remover",
+						Description = "Enzyme-based mold and mildew remover",
+						Price = 23.99M,
+						VendorCost = 15.59M,
+						Color = ColorEnum.None,
+						Image = @"mold-and-mildew-stain-remover.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Mop",
+						Description = "Complete microfiber mop system",
+						Price = 112.99M,
+						VendorCost = 73.44M,
+						Color = ColorEnum.None,
+						Image = @"mop.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 2
+					},
+					new Product
+					{
+						Name = "Chenille Dry Mop Pad",
+						Description = "Statically charged to pick up the smallest dirt particles",
+						Price = 36.99M,
+						VendorCost = 24.04M,
+						Color = ColorEnum.None,
+						Image = @"chenille-dry-mop.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 2
+					},
+					new Product
+					{
+						Name = "Wet Mop Pad",
+						Description = "Ideal for washing floors and walls",
+						Price = 33.99M,
+						VendorCost = 22.09M,
+						Color = ColorEnum.None,
+						Image = @"dry-superior-mop-pad-large.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 2
+					},
+					new Product
+					{
+						Name = "Mop Base",
+						Description = "Base for the mop system",
+						Price = 31.99M,
+						VendorCost = 20.79M,
+						Color = ColorEnum.None,
+						Image = @"mop-base-large.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 2
+					},
+					new Product
+					{
+						Name = "Mop Mini",
+						Description = "A smaller mop system",
+						Price = 94.99M,
+						VendorCost = 61.74M,
+						Color = ColorEnum.None,
+						Image = @"mop-mini.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 2
+					},
+					new Product
+					{
+						Name = "Norwex Napkins",
+						Description = "Recycled microfiber dinner napkins",
+						Price = 29.99M,
+						VendorCost = 19.49M,
+						Color = ColorEnum.Teal,
+						Image = @"norwex-napkins-teal.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Odor Eliminator",
+						Description = "Enzyme-based cleaner that targets ordor",
+						Price = 16.99M,
+						VendorCost = 11.04M,
+						Color = ColorEnum.None,
+						Image = @"odor-eliminator.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Optic Scarf",
+						Description = "Microfiber cloth for cleaning glasses and screens",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.None,
+						Image = @"optic-scarf-dots.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Pet To Dry",
+						Description = "Small hand towels for kids",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.None,
+						Image = @"kids-pet-to-dry-kitten.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 7
+					},
+					new Product
+					{
+						Name = "Produce Bags",
+						Description = "Reusable mesh bags to store produce",
+						Price = 14.99M,
+						VendorCost = 9.74M,
+						Color = ColorEnum.None,
+						Image = @"produce_bags.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Rescue Gel",
+						Description = "Rub-on gel to relieve tension",
+						Price = 15.99M,
+						VendorCost = 10.39M,
+						Color = ColorEnum.None,
+						Image = @"rescue-gel.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Grocery Bag",
+						Description = "Reusable carry-all bag",
+						Price = 6.99M,
+						VendorCost = 4.54M,
+						Color = ColorEnum.None,
+						Image = @"grocery-bag.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Rubber Brush",
+						Description = "Cleans dust and hair from your home and microfiber pads",
+						Price = 14.99M,
+						VendorCost = 9.74M,
+						Color = ColorEnum.None,
+						Image = @"rubber-brush.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 2
+					},
+					new Product
+					{
+						Name = "Safe Haven",
+						Description = "Starter Package",
+						Price = 166.49M,
+						VendorCost = 108.22M,
+						Color = ColorEnum.None,
+						Image = @"safe-haven-package.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 1
+					},
+					new Product
+					{
+						Name = "Sea Salt Scrub",
+						Description = "Salt scrub for your feet",
+						Price = 39.99M,
+						VendorCost = 25.99M,
+						Color = ColorEnum.None,
+						Image = @"salt-scrub.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Shea Butter",
+						Description = "Rich and thick moisturizer",
+						Price = 28.99M,
+						VendorCost = 18.84M,
+						Color = ColorEnum.None,
+						Image = @"shea-butter.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Shower Gel",
+						Description = "Chemical-free shower gel",
+						Price = 16.99M,
+						VendorCost = 11.04M,
+						Color = ColorEnum.None,
+						Image = @"shower-gel.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Rectangle Silicone Lid",
+						Description = "Seals bowls for use in fridges, ovens, and microwaves",
+						Price = 29.99M,
+						VendorCost = 19.49M,
+						Color = ColorEnum.None,
+						Image = @"silicone-bakeware-lids.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Square Silicone Lid",
+						Description = "Seals bowls for use in fridgs, ovens, and microwaves",
+						Price = 15.99M,
+						VendorCost = 10.39M,
+						Color = ColorEnum.None,
+						Image = @"silicone-bakeware-lids.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Sink Mat",
+						Description = "Absorbant mat for next to the sink",
+						Price = 29.99M,
+						VendorCost = 19.49M,
+						Color = ColorEnum.None,
+						Image = @"sink-mats.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Spirinett",
+						Description = "Stainless steel scrubber",
+						Price = 5.99M,
+						VendorCost = 3.89M,
+						Color = ColorEnum.None,
+						Image = @"spirinett.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+					new Product
+					{
+						Name = "Spirisponge",
+						Description = "Nylon sponge for scrubbing",
+						Price = 10.49M,
+						VendorCost = 6.82M,
+						Color = ColorEnum.None,
+						Image = @"spirisponge.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+					new Product
+					{
+						Name = "Sportzyme",
+						Description = "Enzyme-based cleaner to target odor and bacteria",
+						Price = 21.99M,
+						VendorCost = 14.29M,
+						Color = ColorEnum.None,
+						Image = @"sportzyme.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 7
+					},
+					new Product
+					{
+						Name = "Stain Remover",
+						Description = "Laundry stain treater",
+						Price = 10.99M,
+						VendorCost = 7.14M,
+						Color = ColorEnum.None,
+						Image = @"stain_remover.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Stainless Steel Straws",
+						Description = "Reusable drinking straws",
+						Price = 16.99M,
+						VendorCost = 11.04M,
+						Color = ColorEnum.None,
+						Image = @"stainless-steel-straws.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Super Jet Detergent",
+						Description = "Concentrated detergent for dishwashing machines",
+						Price = 15.99M,
+						VendorCost = 10.39M,
+						Color = ColorEnum.None,
+						Image = @"dishwashing-detergent.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 5
+					},
+					new Product
+					{
+						Name = "Timeless Hand Cleaner",
+						Description = "Natural cleaner with no alcohol or harsh chemicals",
+						Price = 9.99M,
+						VendorCost = 6.49M,
+						Color = ColorEnum.None,
+						Image = @"hand-cleaner.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Veggie/Fruit Scrub Cloth",
 						Description = "Scrubs and peels vegetables and fruit",
 						Price = 13.99M,
 						VendorCost = 9.10M,
@@ -1101,26 +1954,79 @@ namespace KioskApp.Controllers
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					},                   
+					},
 					new Product
 					{
-						Name = "Veggie and Fruit Scrub Cloth",
-						Description = "Scrubs and peels vegetables and fruit",
-						Price = 13.99M,
-						VendorCost = 9.10M,
-						Color = ColorEnum.Green,
-						Image = @"veggie-and-fruit-scrub-cloth.jpg",
+						Name = "Timeless Lip Balm",
+						Description = "Natural Lip Balm",
+						Price = 6.99M,
+						VendorCost = 4.54M,
+						Color = ColorEnum.None,
+						Image = @"timeless-lip-balm",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 6
+					},
+					new Product
+					{
+						Name = "Toothbrush",
+						Description = "Anti-bacterial toothbrush",
+						Price = 20.99M,
+						VendorCost = 13.64M,
+						Color = ColorEnum.None,
+						Image = @"toothbrushes.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Travel Pack",
+						Description = "4 mini EnviroCloths",
+						Price = 21.49M,
+						VendorCost = 13.97M,
+						Color = ColorEnum.None,
+						Image = @"travel-pack.jpg",
 						UnitsInStock = 0,
 						IsLimitedEdition = false,
 						VendorId = vendorId,
 						VendorGuid = loginId,
 						CategoryId = 1
-					}
+					},
+					new Product
+					{
+						Name = "Washing Net",
+						Description = "A bag to wash delicates in",
+						Price = 12.99M,
+						VendorCost = 8.44M,
+						Color = ColorEnum.None,
+						Image = @"washing-net.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					},
+					new Product
+					{
+						Name = "Wrinkle Relase",
+						Description = "Releases wrinkles from clothes",
+						Price = 19.99M,
+						VendorCost = 12.99M,
+						Color = ColorEnum.None,
+						Image = @"wrinkle-release-spray.jpg",
+						UnitsInStock = 0,
+						IsLimitedEdition = false,
+						VendorId = vendorId,
+						VendorGuid = loginId,
+						CategoryId = 4
+					});
 
-
-
-
-					);
+				_applicationDbContext.SaveChanges();
 			}
 		}
 
