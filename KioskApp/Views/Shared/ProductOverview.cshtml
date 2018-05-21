@@ -5,15 +5,16 @@
         <img src="~/images/@Model.Product.Image" height="30" alt="">
         <div class="caption">
             <h4 class="pull-right">@Model.Product.Price.ToString("c")</h4>
-            <h4><a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Product.Id">@Model.Product.Name</a></h4>
+            <p><h4><a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Product.Id">@Model.Product.Name</a></h4>
 			@if (Model.Product.Color != ColorEnum.None)
 			{
 				<h5>@Model.Product.Color</h5>
 			}
 			else
 			{
-				<h5>None	</h5>
+				<h5>&nbsp;</h5>
 			}
+			</p>
             <p>@Model.Product.Description</p>
             <form asp-controller="Product" asp-action="AddProductToCart" method="post">
                 <input type="hidden" name="ProductId" value="@Model.Product.Id" />
